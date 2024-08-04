@@ -1,0 +1,287 @@
+.hero{
+    font-family: Montserrat;
+    padding: 50px 0;
+    .hero__content{
+        display: flex;
+        gap: 50px;
+        .hero__left{
+            background-color: #fff;
+            width: 320px;
+            border-radius: 6px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            span{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                border-bottom: 1px solid rgb(233, 233, 233);
+                padding-bottom: 20px;
+                svg{
+                    font-size: 30px;
+                    color: orangered;
+                }
+            }
+            ul{
+                z-index: 5;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .li{
+                    .li__content{
+                        display: none;
+                    }
+                }
+                .li.show{
+                    .li__content{
+                        display: flex;
+                        position: absolute;
+                        left: 580px;
+                        padding: 15px;
+                        border-radius: 12px;
+                        width: 300px;
+                        height: 150px;
+                        background-color: #fff;
+                        .arrowleft{
+                            position: relative;
+                            left: -38px;
+                            top: 30px;
+                            color: #fff;
+                            font-size: 34px;
+                        }
+                    }
+                }
+                li {
+                    border-bottom: 1px solid rgb(233, 233, 233);
+                    width: 250px;
+                    padding-bottom: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    svg{
+                        color: rgb(222, 221, 221);
+                        font-size: 22px;
+                        transition: .3s;
+                    }
+                    a{
+                        text-decoration: none;
+                        color: black;
+                        font-weight: 550;
+                        font-size: 16px;
+                        transition: .3s;
+                    }
+    
+                }
+                li:hover{
+                    a{
+                        color: orangered;
+                    }
+                    svg{
+                        color: orangered;
+                    }
+                }
+            }
+        }
+        .hero__right{
+            .search{
+                display: flex;
+                gap: 80px;
+                button{
+                    padding: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    width: 200px;
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 20px;
+                    font-family: Montserrat;
+                    font-weight: 600;
+                    svg{
+                        color: orangered;
+                        font-size: 24px;
+                    }
+                }
+                form{
+                    display: flex;
+                    align-items: center;
+
+                    border: 1px solid rgb(189, 189, 189);
+                    gap: 10px;
+                    width: 770px;
+                    box-shadow: 0 0 14px 0  rgb(225, 225, 225);
+                    border-radius: 6px;
+                    transition: .3s;
+                    .inp{
+    
+                        display: flex;
+                        align-items: center;
+                        flex: 1;
+                        background-color: transparent;
+                        padding: 20px;
+                        input{
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            flex: 1;
+                        }
+                        svg{
+                            font-size: 20px;
+                        }
+                        
+                    }
+                    .sort{
+                        background-color: #fff;
+                        width: 55px;
+                        height: 56px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        svg{
+                            font-size: 30px;
+                        }
+                    }
+                }
+                form:hover{
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+    .category{
+        display: flex;
+        margin-top: 30px;
+        justify-content: space-between;
+        .img{
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                width: 150px;
+                height: 150px;
+                object-fit: contain;
+            }
+        }
+        p{
+            font-family: Montserrat;
+            font-weight: 700;
+            width: 140px;
+            text-align: center;
+        }
+    }
+    .hero__btn{
+        padding: 20px 28px;
+        background-color:#E13439 ;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        border: none;
+        border-radius: 12px;
+        gap: 10px;
+        font-family: Montserrat;
+        font-weight: 600;
+        margin: 50px auto;
+        font-size: 16px;
+        border: 1px solid #E13439;
+        transition: .3s;
+        svg{
+            font-size: 28px;
+        }
+    }
+    button:hover{
+        background-color: #fff;
+        color: #E13439;
+    }
+    button:active{
+        transform: scale( 0.96);
+    }
+}
+.banner{
+    margin-top: 50px;
+    body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .fader {
+        height: 400px;
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      
+      .fader__slide {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+      }
+      
+      .fader img {
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+      } 
+        [class^="number-slide"],
+        [class*=" number-slide"] {
+          background: grey;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 50px;
+          color: #fff;
+          font-weight: 500;
+          height: 300px;
+          max-height: 100vh;
+        }
+        
+      
+        .navigation-wrapper {
+          position: relative;
+        }
+        
+        
+        
+        .arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          fill: #fff;
+          cursor: pointer;
+        }
+        
+        .arrow--left {
+          left: 0px;
+          z-index: 50;
+          background-color: #fff;
+          width: 40px;
+          padding: 10px 5px 0 5px;
+          border-radius: 0px 50px 50px 0;
+          height: 80px;
+          transition: .3s;
+      
+        }
+        
+        .arrow--right {
+          left: auto;
+          transition: .3s;
+          right: 0px;
+          background-color: #fff;
+          width: 40px;
+          padding: 10px 0px 0 10px;
+          border-radius: 50px 0px 0px 50px;
+          height: 80px;
+        }
+        
+      .arrow--left:hover , .arrow--right:hover{
+        color: #E13439;
+      }
+}

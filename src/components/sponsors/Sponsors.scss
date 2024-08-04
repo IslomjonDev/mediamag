@@ -1,0 +1,107 @@
+
+.sponsors{
+    body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      .keen-slider{
+        background-color: #fff;
+        margin: 50px 0;
+        height: 150px;
+        
+        display: flex;
+        align-items: center;
+        border-radius: 16px;
+        padding:  0 60px;
+    
+      }
+      [class^="number-slide"],
+      [class*=" number-slide"] {
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        color: #fff;
+        font-weight: 500;
+        height: 100px;
+        max-height: 100vh;
+        margin: 50px 0;
+      }
+      
+      .number-slide1 {
+        background-color: transparent;
+        cursor: pointer;
+        img{
+            opacity: .6;
+            transition: .3s;
+            width: 160px;
+            height: 60px;
+            object-fit: contain;
+        }
+    
+    }
+    .number-slide1:hover{
+        img{
+            opacity: 1;
+        }
+    }
+    
+    
+    .text{
+        background-color: #A6070C;
+        color: #fff;
+        margin: 50px 0;
+        padding: 40px;
+        font-family: Montserrat;
+        font-weight: 700;
+        border-radius: 16px;
+        h1{
+            width: 900px;
+        }
+        p{
+            margin: 20px 0;
+            font-weight: 400;
+        }
+    }
+
+       
+      
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        fill: #fff;
+        cursor: pointer;
+      }
+      
+      .arrow--left {
+        left: 0px;
+        z-index: 50;
+        width: 60px;
+        color: #000000;
+        padding: 10px 10px 0 20px;
+        height: 80px;
+        transition: .3s;
+        background-color: #fff;
+      }
+      
+      .arrow--right {
+        left: auto;
+        transition: .3s;
+        right: 0px;
+        width: 60px;
+        color: #000000;
+        padding: 10px 20px 0 10px;
+        height: 80px;
+        background-color: #fff;
+      }
+      
+    .arrow--left:hover , .arrow--right:hover{
+        color: #A6070C;
+    }
+}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+.container{
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+li{
+  list-style-type: none;
+}
+body{
+  background-color: #F5F5F5;
+}
+button{
+  cursor: pointer;
+}
+
+
+
+.topbtn{
+  position: fixed ;
+  bottom: 50%;
+  right: 0px;
+  background-color: orangered;
+  color: black;
+  border: none;
+  border-radius: 50px 0px 0px 50px;
+  width: 40px;
+  height: 70px ;
+  display: flex !important;
+  justify-content :center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: .3s ;
+  opacity: 0 !important;
+  margin-bottom: -200px !important;
+  svg{
+    font-size: 22px;
+    color: #fff;
+  }
+
+}
+
+.topbtn.visible{
+  opacity: 1 !important;
+  margin-bottom: 0 !important;
+  transition: .3s  ;
+  z-index: 5;
+
+}

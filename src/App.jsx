@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer'
 import { useEffect, useState } from 'react'
 
 import { FaArrowUpLong } from "react-icons/fa6";
+import Cart from './pages/cart/Cart'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
     <Header/>
     <Routes>
       <Route path="/" element={<Home/>} />
+      <Route path="/cart" element={<Cart/>} />
     </Routes>
     <Footer/>
     </>

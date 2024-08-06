@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Footer.scss'
 
 
@@ -14,6 +14,11 @@ import icon3 from '../../assets/tg.png'
 
 
 const Footer = () => {
+    let {pathname} = useLocation()
+
+    if(pathname.includes('cart') || pathname.includes('admin') || pathname.includes('register')){
+        return <></>
+    }
   return (
     <>
         <footer>

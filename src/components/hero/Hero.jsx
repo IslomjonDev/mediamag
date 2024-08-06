@@ -141,8 +141,10 @@ const Hero = () => {
                             <VscSettings />
                             </div>
                         </form>
-                        <button><FaShoppingCart /> корзина 
-                        </button>
+                        <Link to={'/cart'}>
+                          <button><FaShoppingCart /> корзина 
+                          </button>
+                        </Link>
                     </div>
                   <div className="banner">
                     <div className="navigation-wrapper">

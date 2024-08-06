@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import '../products/Products.scss'
 import { FaShoppingCart, FaCheck } from "react-icons/fa"
 import { useKeenSlider } from "keen-slider/react"
-import { useGetProductsQuery } from '../../context/api/ProductApi'
 import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6'
 
 function Arrow(props) {
@@ -22,11 +21,10 @@ function Arrow(props) {
   )
 }
 
-const Products = () => {
+const Products = ({data}) => {
   const [opacities, setOpacities] = useState([])
   const [currentSlide, setCurrentSlide] = useState(0)
   const [loaded, setLoaded] = useState(false)
-
   const [sliderRef, instanceRef] = useKeenSlider({
     slides: {
       perView: 4,
@@ -48,15 +46,14 @@ const Products = () => {
     },
   })
 
-  const { data } = useGetProductsQuery()
 
   let productItems = data?.products?.map((product) => 
-    <div key={product.id} className="keen-slider__slide number-slide2">
+    <div key={product?.id} className="keen-slider__slide number-slide1">
       <div className="product__card">
         <img src={product?.images[0]} alt="" />
         <h2>{product?.title}</h2>
         <span>
-          <p>{product?.price}.00</p>
+          <p>{product.price}.00</p>
           <button><FaShoppingCart /></button>
         </span>
         <h4><FaCheck /> Есть в наличии</h4>
@@ -68,7 +65,7 @@ const Products = () => {
     <>
       <div className="products">
         <div className="container">
-          <div className="products__title">
+        <div className="products__title">
             <h2>Супер цена.</h2>
           </div>
           <div className="product__cards">

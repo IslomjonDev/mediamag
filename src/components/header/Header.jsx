@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import '../hero/Hero.scss'
 import './Header.scss'
 
@@ -17,6 +17,13 @@ import uzb from '../../assets/uzb.svg'
 import logo from '../../assets/logo.png'
 
 const Header = () => {
+
+    let {pathname} = useLocation()
+
+  if(pathname.includes('cart') || pathname.includes('admin') || pathname.includes('register')){
+      return <></>
+  }
+
     const [openLink, setOpenLink] = useState(false)
     const [openLink2, setOpenLink2] = useState(false)
     const [shrink, setShrink] = useState(false)

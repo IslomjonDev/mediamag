@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import '../hero/Hero.scss'
 import './Header.scss'
 
@@ -61,8 +61,10 @@ const Header = () => {
                                 <VscSettings />
                             </div>
                         </form>
-                        <button><FaShoppingCart /> корзина 
-                        </button>
+                        <Link to={'/cart'}>
+                            <button><FaShoppingCart /> корзина 
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -79,7 +81,11 @@ const Header = () => {
                                         <IoMdArrowDropup className='arrow' />
                                     </NavLink>
                                     <div className="link__content">
-                                        <h2>xzokadjon</h2>
+                                        <span>
+                                            <Link to={'/aboutpage'}>
+                                            Политика Конфиденциальности
+                                            </Link>
+                                        </span>
                                     </div>
                                 </li>
                                 <li 
@@ -90,20 +96,25 @@ const Header = () => {
                                         <IoMdArrowDropup className='arrow' />
                                     </NavLink>
                                     <div className="link__content">
-                                        <h2>xzokadjon</h2>
+                                       <Link to={'/paymentpage2'}>
+                                       Оплата Перечислением
+                                       </Link>
+                                       <Link to={'/paymentpage'}>
+                                         Покупка в рассрочку.
+                                       </Link>
                                     </div>
                                 </li>
                                 <li>
-                                    <NavLink to={'/'} >Рассрочка в Исламе</NavLink>
+                                    <NavLink target='blank' to={'https://mediamag.uz/https-/alifnasiya.uz/auth/registration'} >Рассрочка в Исламе</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={'/'} >Проверка IMEI</NavLink>
+                                    <NavLink target='blank' to={'https://uzimei.uz/'} >Проверка IMEI</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={'/'} >Гарантия на товары</NavLink>
+                                    <NavLink to={'/warranty'} >Гарантия на товары</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={'/'} >Бесплатная Доставка</NavLink>
+                                    <NavLink to={'/deliverypage'} >Бесплатная Доставка</NavLink>
                                 </li>
                             </div>
                             <div className="top__right">

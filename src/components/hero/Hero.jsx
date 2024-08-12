@@ -141,7 +141,7 @@ const Hero = () => {
                             <VscSettings />
                             </div>
                         </form>
-                        <Link to={'/cart'}>
+                        <Link to={'/cartOrder'}>
                           <button><FaShoppingCart /> корзина 
                           </button>
                         </Link>

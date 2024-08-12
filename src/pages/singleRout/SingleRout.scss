@@ -1,0 +1,193 @@
+.singlerout{
+    padding: 80px 0;
+    font-family: Montserrat;
+    .search{
+        display: flex;
+        justify-content: center;
+        gap: 70px;
+        .katalog__btn{
+            font-size: 14px;
+            width: 270px !important;
+        }
+        button{
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 200px;
+            background-color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-family: Montserrat;
+            font-weight: 600;
+            svg{
+                color: orangered;
+                font-size: 24px;
+            }
+        }
+        a{
+            text-decoration: none ;
+        }
+        form{
+            display: flex;
+            align-items: center;
+            border: 1px solid rgb(189, 189, 189);
+            gap: 10px;
+            width: 870px;
+            box-shadow: 0 0 14px 0  rgb(225, 225, 225);
+            border-radius: 6px;
+            transition: .3s;
+            .inp{
+
+                display: flex;
+                align-items: center;
+                flex: 1;
+                background-color: transparent;
+                padding: 20px;
+                input{
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    flex: 1;
+                }
+                svg{
+                    font-size: 20px;
+                }
+                
+            }
+            .sort{
+                background-color: #fff;
+                width: 55px;
+                height: 56px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                svg{
+                    font-size: 30px;
+                }
+            }
+        }
+        form:hover{
+            background-color: #fff;
+        }
+    }
+    .single__title{
+        display: flex;
+        margin-top: 30px;
+        gap: 20px;
+        a{
+            text-decoration: none;
+            color: black;
+
+        }
+        p{
+            color: black;
+            opacity: .7;
+        }
+    }
+    .single__card{
+        display: flex;
+        padding: 40px;
+        justify-content: space-between;
+        background-color: #fff;
+        margin: 50px 0;
+        border-radius: 8px;
+        .single__img{
+            img{
+                width: 450px;
+                height: 450px;
+                object-fit: contain;
+            }
+        }
+        .single__content{
+            width: 500px;
+            margin-top: 100px;
+            p{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 20px;
+                svg{
+                    color: green;
+                    font-size: 28px;
+                }
+            }
+            h2{
+                margin-bottom: 50px;
+            }
+            p:nth-child(3) , p:nth-child(4){
+                opacity: .5;
+            }
+        }
+        .single__payment{
+            padding: 30px;
+            border: 1px solid #c6c6c6;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            span{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                h2{
+                    font-size: 32px;
+                }
+                p{
+                    font-size: 20px;
+                }
+            }
+            .count{
+                display: flex;
+                gap: 25px;
+                border: 1px solid #c7c7c7;
+                margin-top: 20px;
+                width: 120px;
+                border-radius: 5px;
+                padding: 10px;
+                align-items: center;
+                svg{
+                    cursor: pointer;
+                    font-size: 20px;
+                    color: #ff1900;
+                }
+                button{
+                    background-color: #fff;
+                    border: none;
+                }
+            }
+            .buybtn{
+                padding: 15px 25px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                font-family: Montserrat;
+                font-size: 16px;
+                border: 1px solid #ff1900;
+                background-color: #ff1900;
+                color: #fff;
+                border-radius: 6px;
+                margin-top: 20px;
+                transition: .3s;
+                svg{
+                    color: #fff;
+                    font-size: 24px;
+                    transition: .3s;
+                }
+            }
+            .buybtn:hover{
+                background-color: #fff;
+                color: #ff1900 ;
+                svg{
+                    color: #ff1900;
+                }
+            } 
+            .buybtn:active{
+                transform: scale(.98);
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+.payment{
+    .payment__contents{
+        display: flex;
+        justify-content: space-between;
+        .payment__oorder{
+            width: 400px;
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        span{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input{
+            width: 630px;
+            padding: 10px;
+            border: 1px solid #bbbbbb;
+            border-radius: 6px;
+            outline: none;
+        }
+        label{
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .dfp{
+            display: flex;
+            gap: 30px;           
+            span:first-child{
+                input{
+                    width: 200px;
+                }
+            }
+            span:nth-child(2){
+                input{
+                    width: 400px;
+                }
+            }
+        }
+        textarea{
+            width: 630px;
+            height: 130px;
+            resize: none;
+            border: 1px solid #bbbbbb;
+            outline: none;
+            padding: 10px;
+            border-radius: 6px;
+        }
+    }
+    .payment__oorder{
+        width: 400px;
+        border: 1px solid #bbbbbb;
+        margin-top: 60px;
+        padding: 30px;
+        border-radius: 6px;
+        p{
+            margin-bottom: 20px;
+        }
+        span{
+            display: flex;
+            gap: 20px;
+        }
+    }
+    .delivery__btns{
+        display: flex;
+        margin-top: 30px;
+        gap: 20px;
+        flex-direction: column;
+        button{
+            padding: 15px;
+            border: 1px solid #F06354;
+            background-color: #F06354;
+            color: #fff;
+            transition: .3s;
+            font-weight: 600;
+            width: 100%;
+            font-family: Montserrat;
+            border-radius: 6px;
+            opacity: .8;
+        }
+        button:hover{
+            opacity: 1;
+        }
+        button:active{
+            transform: scale(.96);
+        }
+        a:nth-child(2){
+            button{
+                background-color: #fff;
+                color: #F06354;
+            }
+            button:hover{
+                opacity: 1;
+                background-color: #F06354;
+                color: #fff;
+            }
+        }
+    }
+}

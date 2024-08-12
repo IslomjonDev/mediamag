@@ -1,0 +1,194 @@
+.cart{
+    background-color: #fff;
+    font-family: Montserrat;
+    height: 100vh;
+    .cart__cards{
+        width: 1000px;
+        .bb{
+            border-bottom: 1px solid #cdcdcd;
+            padding-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: end;
+            h2{
+                font-weight: 500;
+            }
+            button{
+                width: 180px;
+                padding: 5px 20px;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                font-family: Montserrat;
+                gap: 10px;
+                margin-top: 30px;
+                border: 1px solid #F06354;
+                border-radius: 6px;
+                background-color: #fff;
+                color: #F06354;
+                transition: .3s;
+                font-weight: 600;
+                font-size: 15px;
+                svg{
+                    font-size: 26px;
+                }
+            }
+            button:hover{
+                background-color: #F06354;
+                color: #fff;
+            }
+        }
+    }
+    .cards__title{
+        display: flex;
+        padding: 15px 0;
+        border-bottom: 1px solid #b7b7b7;
+        p{
+            font-weight: 600;
+            width: 180px;
+        }
+        p:first-child{
+            width: 350px !important;
+        }
+        p:nth-child(2){
+            margin-left: 70px;
+        }
+      
+    }
+    .cart__card{
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        border-bottom: 1px solid #b6b6b6;
+        .img{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 350px;
+            img{
+                width: 80px;
+                height: 80px;
+                object-fit: contain;
+            }
+            svg{
+                color: rgb(230, 230, 0);
+            }
+            p{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+            }
+        }
+        .price{
+            width: 150px;
+            margin-left: 70px;
+        }
+        .count{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            p{
+                border: 1px solid #9f9f9f;
+                padding: 10px 20px;
+                border-radius: 6px;
+            }
+            button{
+                background-color: transparent;
+                border: none;
+
+                svg{
+                    font-size: 28px;
+                    color: #F06354;
+                }
+            }
+        }
+        .allPrice{
+            margin-left: 50px;
+            width: 160px;
+
+        }
+        .remove button{
+                 width: 100px;
+                background-color: transparent;
+                border: none;
+
+                svg{
+                    font-size: 28px;
+                    color: #F06354;
+                }
+            
+        }
+    }
+    .df{
+        display: flex;
+        justify-content: space-between;
+        .itogo{
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            align-items: center;
+            right: -600px;
+            position: relative;
+            padding: 30px 0;
+            border-bottom: 1px solid #9f9f9f;
+        }
+        .xzbtn{
+            button{
+                padding: 15px;
+                border: 1px solid #F06354;
+                background-color: #F06354;
+                color: #fff;
+                transition: .3s;
+                font-weight: 600;
+                width: 400px;
+                margin-left: 600px;
+                margin-top: 20px;
+                font-family: Montserrat;
+                border-radius: 6px;
+            }
+            button:hover{
+                background-color: #fff;
+                color: #F06354;
+            }
+            button:active{
+                transform: scale(.96);
+            }
+        }
+        .cart__order{
+            width: 400px;
+            .order__content{
+                border: 1px solid #000;
+                padding: 20px;
+                border-radius: 6px;
+                margin-top: 100px;
+                span{
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
+                button{
+                    padding: 15px;
+                    border: 1px solid #F06354;
+                    background-color: #F06354;
+                    color: #fff;
+                    transition: .3s;
+                    font-weight: 600;
+                    width: 100%;
+                    font-family: Montserrat;
+                    border-radius: 6px;
+                }
+                button:hover{
+                    background-color: #fff;
+                    color: #F06354;
+                }
+                button:active{
+                    transform: scale(.96);
+                }
+            }
+        }
+    }
+}

@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { Link } from 'react-router-dom';
 
 const Products = ({ data }) => {
   const dispatch = useDispatch();
@@ -15,7 +16,9 @@ const Products = ({ data }) => {
   let productItems = data?.products?.map((product, index) => (
     <SwiperSlide key={product.id}>
       <div className="product__card">
+        <Link to={`/products/${product.id}`}>
         <img src={product?.images[0]} alt="" />
+        </Link>
         <h2>{product?.title}</h2>
         <span>
           <p>{product.price}.00</p>

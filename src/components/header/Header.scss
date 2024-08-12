@@ -8,11 +8,13 @@
     position: sticky;
     top: 0;
     left: 0;
-  
+    box-shadow: 0 0 20px 0px rgb(178, 178, 178);
     .shrink__content{
         display: flex;
         justify-content: space-between;
-
+        a{
+            text-decoration: none;
+        }
             button{
                 border: 1px solid rgb(214, 214, 214);
                 padding: 20px;
@@ -120,6 +122,13 @@ header{
                         box-shadow: 0 0 12px rgb(163, 163, 163);
                         position: absolute;
                         background-color: #fff;
+                        a{
+                            transition: .2s;
+                            color: black;
+                        }
+                        a:hover{
+                            color: #E13439;
+                        }
                     }
                 }
                 .link1.show , .link2.show{
@@ -131,9 +140,11 @@ header{
                         font-size: 30px;
                     }
                     .link__content{
-                        display: block;
                         width: 300px;
                         margin-top: 20px;
+                        display: flex;
+                        gap: 20px;
+                        flex-direction: column;
                         h2{
                             color: black;
                         }

@@ -1,0 +1,40 @@
+.paymentpage{
+    padding: 50px 0;
+    font-family: Montserrat;
+    .paymentpage__title{
+        display: flex;
+        margin-top: 40px;
+        gap: 10px;
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        p:nth-child(3) {
+            opacity: .5;
+        }
+    }
+    .paymentpage__content{
+        margin-top: 50px;
+        p:nth-child(2){
+            margin-left: 20px ;
+        }
+        p{
+            margin: 20px 0;
+            line-height: 25px;
+        }
+        h5{
+            font-size: 16px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 40px;
+        }
+    }
+}
+.paymentpage{
+    padding: 50px 0;
+    .payment2__content{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}

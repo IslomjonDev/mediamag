@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './SingleRout.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetProductByIdQuery } from '../../context/api/ProductApi';
-import { Link, useParams } from 'react-router-dom';
+import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
 
 ////////----Icons
 import { FaCheck, FaShoppingCart } from 'react-icons/fa';
@@ -18,11 +18,17 @@ import { addToCart, decrementCart, incrementCart } from '../../context/slices/ca
 const SingleRout = () => {
 
     useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+        window.scrollTo(0, 0);
+        const savedQuantity = localStorage.getItem(`quantity-${id}`);
+        if (savedQuantity) {
+            setQuantity(parseInt(savedQuantity));
+        }
+    }, []);
 
-    const dispatch = useDispatch()
-    const cart = useSelector(state => state.cart.value)
+    const [quantity, setQuantity] = useState(1);
+
+    const dispatch = useDispatch();
+    const cart = useSelector(state => state.cart.value);
     const { id } = useParams();
     const { data } = useGetProductByIdQuery(id);
     const [cardType , setCardType] = useState('');
@@ -31,6 +37,25 @@ const SingleRout = () => {
         setCardType(e.target.value);
     };
 
+    const handleIncrement = () => {
+        setQuantity(prevQuantity => {
+            const newQuantity = prevQuantity + 1;
+            localStorage.setItem(`quantity-${id}`, newQuantity); // Save to localStorage
+            return newQuantity;
+        });
+        dispatch(incrementCart(data));
+    }
+
+    const handleDecrement = () => {
+        if (quantity > 1) {
+            setQuantity(prevQuantity => {
+                const newQuantity = prevQuantity - 1;
+                localStorage.setItem(`quantity-${id}`, newQuantity); // Save to localStorage
+                return newQuantity;
+            });
+            dispatch(decrementCart(data));
+        }
+    }
 
     return (
         <>
@@ -62,22 +87,27 @@ const SingleRout = () => {
                                 <h2>{data?.price}.00</h2>
                                 <p>сўм</p>
                             </span>
+                            {
+                                 cart.some(cartItem => cartItem?.id === data?.id) ?
+
                             <div className='count'>
                                 <button 
-                                    disabled={cart?.item} 
-                                    onClick={() => dispatch(decrementCart(data))}>
+                                    disabled={quantity <= 1} 
+                                    onClick={handleDecrement}>
                                     <MdKeyboardArrowLeft />
                                 </button>
-                                <p>{cart.find(data => data.id === id)?.quantity}</p>
-                                <button onClick={() => dispatch(incrementCart(data))}>
+                                    {quantity}
+                                <button onClick={handleIncrement}>
                                     <MdKeyboardArrowRight />
                                 </button>
                             </div>  
+                            :
+                            <></>
+                            }
                             {
-                                 cart.some(cart => cart?.id === data?.id) ?
+                                 cart.some(cartItem => cartItem?.id === data?.id) ?
                                  <button className='buybtn'>Купить <FaCheck/> </button> :
-
-                           <    button  className='buybtn'  onClick={() => {  dispatch(addToCart(data)) }}>Купить <FaShoppingCart /></button>
+                                 <button  className='buybtn'  onClick={() => { dispatch(addToCart(data)) }}>Купить <FaShoppingCart /></button>
                             } 
                             <div className="payment__type">
                                 <label className={cardType === 'Pay1' ? 'show' : ''} htmlFor="pay1">
@@ -123,6 +153,17 @@ const SingleRout = () => {
                             <div>
                             </div>
                         </div>
+                    </div>
+                    <div className="single__text">
+                        <div className="text__title">
+                            <NavLink to={'desc'}>
+                             <button>Описание</button>
+                            </NavLink>
+                            <NavLink to={'reviews'}>
+                            <button>Отзывы</button>
+                            </NavLink>
+                        </div>
+                        <Outlet/>
                     </div>
                 </div>
             </div>

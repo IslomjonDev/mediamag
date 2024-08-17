@@ -16,6 +16,8 @@ import PaymentPage from './pages/paymentpage/PaymentPage'
 import PaymentPage2 from './pages/paymentpage/PaymentPage2'
 import Warranty from './pages/warranty/Warranty'
 import DeliveryPage from './pages/deliverypage/DeliveryPage'
+import Desc from './pages/singleRout/Desc'
+import Reviews from './pages/singleRout/Reviews'
 
 function App() {
 
@@ -52,7 +54,10 @@ function App() {
         <Route path='delivery' element={<CartDelivery/>} ></Route>
         <Route path='payment' element={<CartPayment/>} ></Route>
       </Route>
-      <Route path='/products/:id' element={<SingleRout/>}/>
+      <Route path='/products/:id' element={<SingleRout/>}>
+        <Route path='desc' element={<Desc/>} />
+        <Route path='reviews' element={<Reviews/>} />
+      </Route>
       <Route path='/aboutpage' element={<AboutPage/>}/>
       <Route path='/paymentpage' element={<PaymentPage/>}/>
       <Route path='/paymentpage2' element={<PaymentPage2/>}/>

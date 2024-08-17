@@ -1,35 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './SingleRout.scss'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useGetProductByIdQuery } from '../../context/api/ProductApi';
 import { Link, useParams } from 'react-router-dom';
 
 ////////----Icons
-import { FaSearch, FaShoppingCart } from 'react-icons/fa';
-import { VscSettings } from 'react-icons/vsc';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { FaCheck, FaShoppingCart } from 'react-icons/fa';
 import { BiCheck } from 'react-icons/bi';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import pay1 from '../../assets/pay1.jpg' // Rasmni import qilish
+import pay1 from '../../assets/pay1.jpg' 
+import pay2 from '../../assets/intend.png' 
+import pay3 from '../../assets/pay2.png' 
 
-///////////-----MUI
-import Box from '@mui/joy/Box';
-import FormLabel from '@mui/joy/FormLabel';
-import Radio from '@mui/joy/Radio';
-import RadioGroup from '@mui/joy/RadioGroup';
-import Sheet from '@mui/joy/Sheet';
 import Search from '../../components/search/Search';
+import { addToCart, decrementCart, incrementCart } from '../../context/slices/cartSlice'
 
 const SingleRout = () => {
-    const cart = useSelector(v => v.cart.value);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    const dispatch = useDispatch()
+    const cart = useSelector(state => state.cart.value)
     const { id } = useParams();
-    const { data, isLoading } = useGetProductByIdQuery(id);
+    const { data } = useGetProductByIdQuery(id);
+    const [cardType , setCardType] = useState('');
+
+    const handleCardTypeChange = (e) => {
+        setCardType(e.target.value);
+    };
+
 
     return (
         <>
             <div className="singlerout">
                 <div className="container">
-                    <Search/>
+                    <Search />
                     <div className="single__title">
                         <Link to={'/'}>Главная</Link>
                         <p>/</p>
@@ -56,79 +63,65 @@ const SingleRout = () => {
                                 <p>сўм</p>
                             </span>
                             <div className='count'>
-                                <button><MdKeyboardArrowLeft /></button>
-                                <p>1</p>
-                                <button><MdKeyboardArrowRight /></button>
+                                <button 
+                                    disabled={cart?.item} 
+                                    onClick={() => dispatch(decrementCart(data))}>
+                                    <MdKeyboardArrowLeft />
+                                </button>
+                                <p>{cart.find(data => data.id === id)?.quantity}</p>
+                                <button onClick={() => dispatch(incrementCart(data))}>
+                                    <MdKeyboardArrowRight />
+                                </button>
+                            </div>  
+                            {
+                                 cart.some(cart => cart?.id === data?.id) ?
+                                 <button className='buybtn'>Купить <FaCheck/> </button> :
+
+                           <    button  className='buybtn'  onClick={() => {  dispatch(addToCart(data)) }}>Купить <FaShoppingCart /></button>
+                            } 
+                            <div className="payment__type">
+                                <label className={cardType === 'Pay1' ? 'show' : ''} htmlFor="pay1">
+                                    <input
+                                        checked={cardType === 'Pay1'}
+                                        required
+                                        value='Pay1'
+                                        type="radio"
+                                        name="card"
+                                        id="pay1"
+                                        onChange={handleCardTypeChange}
+                                    />
+                                     в расскочку 
+                                    <img src={pay1} alt="" />
+                                </label>
+                                <label className={cardType === 'Pay2' ? 'show' : ''} htmlFor="pay2">
+                                    <input
+                                        checked={cardType === 'Pay2'}
+                                        required
+                                        value='Pay2'
+                                        type="radio"
+                                        name="card"
+                                        id="pay2"
+                                        onChange={handleCardTypeChange}
+                                    />
+                                     в расскочку 
+                                    <img src={pay2} alt="" />
+                                </label>
+                                <label className={cardType === 'Pay3' ? 'show' : ''} htmlFor="pay3">
+                                    <input
+                                        checked={cardType === 'Pay3'}
+                                        required
+                                        value='Pay3'
+                                        type="radio"
+                                        name="card"
+                                        id="pay3"
+                                        onChange={handleCardTypeChange}
+                                    />
+                                     в расскочку 
+                                    <img src={pay3} alt="" />
+                                </label>
                             </div>
-                            <button className='buybtn'>Купить <FaShoppingCart /></button>
-                            <Box sx={{ width: 300 }}>
-                                <FormLabel
-                                    id="storage-label"
-                                    sx={{
-                                        mb: 2,
-                                        fontWeight: 'xl',
-                                        textTransform: 'uppercase',
-                                        fontSize: 'xs',
-                                        letterSpacing: '0.15rem',
-                                    }}
-                                >
-                                </FormLabel>
-                                <RadioGroup
-                                    aria-labelledby="storage-label"
-                                    defaultValue="512GB"
-                                    size="lg"
-                                    sx={{ gap: 1.5 }}
-                                >
-                                    {[].map((value) => (
-                                        <Sheet
-                                            key={value}
-                                            sx={{
-                                                p: 2,
-                                                borderRadius: 'md',
-                                                boxShadow: 'sm',
-                                            }}
-                                        >
-                                            <Radio
-                                                value={value}
-                                                overlay
-                                                disableIcon
-                                                slotProps={{
-                                                    label: ({ checked }) => ({
-                                                        sx: {
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            gap: 1,
-                                                            fontWeight: 'lg',
-                                                            fontSize: 'md',
-                                                            color: checked ? 'text.primary' : 'text.secondary',
-                                                        },
-                                                        children: (
-                                                            <>
-                                                                {/* <img 
-                                                                    src={pay1} // Import qilingan rasmni ishlatish
-                                                                    alt={value}
-                                                                    style={{ width: 50, height: 50, marginRight: 8 }}
-                                                                /> */}
-                                                                {/* <span>{`${value} SSD storage`}</span> */}
-                                                            </>
-                                                        ),
-                                                    }),
-                                                    action: ({ checked }) => ({
-                                                        sx: (theme) => ({
-                                                            ...(checked && {
-                                                                '--variant-borderWidth': '2px',
-                                                                '&&': {
-                                                                    borderColor: theme.vars.palette.primary[500],
-                                                                },
-                                                            }),
-                                                        }),
-                                                    }),
-                                                }}
-                                            />
-                                        </Sheet>
-                                    ))}
-                                </RadioGroup>
-                            </Box>
+                            <div>
+                            </div>
                         </div>
                     </div>
                 </div>

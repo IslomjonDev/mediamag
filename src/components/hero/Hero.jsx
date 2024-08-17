@@ -23,6 +23,7 @@ const images = [
 
 import cat1 from '../../assets/cat1.png'
 import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
+import { useSelector } from 'react-redux';
 
 
 function Arrow(props) {
@@ -48,6 +49,11 @@ function Arrow(props) {
 
 
 const Hero = () => {
+
+  const cart = useSelector(state => state.cart.value);
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+
   const [openLi, setOpenLi] = useState(false);
   const [opacities, setOpacities] = useState([])
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -141,8 +147,9 @@ const Hero = () => {
                             <VscSettings />
                             </div>
                         </form>
-                        <Link to={'/cartOrder'}>
+                        <Link to={'/cart'}>
                           <button><FaShoppingCart /> корзина 
+                          <p>{totalQuantity}</p>
                           </button>
                         </Link>
                     </div>

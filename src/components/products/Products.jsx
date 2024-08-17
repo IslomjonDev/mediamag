@@ -1,8 +1,7 @@
 import React from 'react';
 import './Products.scss';
 import { FaShoppingCart, FaCheck } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
-import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../context/slices/cartSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -12,6 +11,8 @@ import { Link } from 'react-router-dom';
 
 const Products = ({ data }) => {
   const dispatch = useDispatch();
+  const cart = useSelector(v => v.cart.value);
+
 
   let productItems = data?.products?.map((product, index) => (
     <SwiperSlide key={product.id}>
@@ -22,14 +23,17 @@ const Products = ({ data }) => {
         <h2>{product?.title}</h2>
         <span>
           <p>{product.price}.00</p>
-          <button
-            onClick={() => {
-              console.log(product);
-              dispatch(addToCart(product));
-            }}
-          >
-            <FaShoppingCart />
-          </button>
+          {
+            cart.some(cart => cart.id === product.id) ?
+            <button><FaCheck/></button>  : 
+            <button 
+              onClick={() => {
+                dispatch(addToCart(product));
+              }}
+            >
+              <FaShoppingCart />
+            </button>
+          }
         </span>
         <h4>
           <FaCheck /> Есть в наличии
